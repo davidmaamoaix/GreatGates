@@ -1,0 +1,18 @@
+.dark {
+	background-color: #24303F;
+	color: #24303F;
+}
+
+.navbar-link {
+	color: #FFF;
+}
+
+.navbar-link:hover {
+	color: #AAA;
+}
+
+.search-bar {
+	height: 40px;
+	background-color: #3A495C;
+	border: 0;
+}
