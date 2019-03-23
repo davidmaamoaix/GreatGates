@@ -1,41 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ title }} | Equinox</title>
+		{% block head %}
+		<title>{{ title }}</title>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
 		<link rel='stylesheet' href='/static/styles/base.css'>
+		{% endblock %}
 	</head>
 	<body>
 		<header>
-			<nav class="navbar dark navbar-expand-md" role="navigation">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-content">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<a class="navbar-brand" href="/"><img src="/static/images/logo.png" width="50"></a>
-
-				<div class="collapse navbar-collapse" id="menu-content">
-					<ul class="navbar-nav mr-3 mt-2 mt-lg-0">
-						<li class="nav-item"><a href="/" class="nav-link navbar-link"><b>Forum</b></a></li>
-						<li class="nav-item"><a href="/" class="nav-link navbar-link">Source</a></li>
-						<li class="nav-item"><a href="/" class="nav-link navbar-link disabled">Contribute</a></li>
+			<div class="nav">
+				<div class="nav-center">
+					<div></div>
+					<ul class="nav-list">
+						<li class="primary nav-obj underline">About</li>
+						<li class="primary nav-obj underline">Order</li>
+						<li class="primary nav-obj shiny">Sign in</li>
 					</ul>
-
-					<form class="form-inline mr-auto" style="width: 40%;">
-						<input type="text" name="search" placeholder="Search..." class="search-bar form-control" style="width: 100%; border: none;">
-						<!--<button class="btn btn-outline-success">Search</button>-->
-					</form>
-
-					<div class="my-4" style="margin-right: 20px;">
-						<a class="navbar-link mx-2" href="/">Sign in</a>
-						<a class="navbar-link mx-2" href="/">Sign up</a>
-					</div>
 				</div>
-			</nav>
+			</div>
 		</header>
+		{% block content %}
+		{% endblock %}
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
 	</body>
 </html>

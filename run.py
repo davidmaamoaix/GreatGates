@@ -1,4 +1,4 @@
-from equinox import app
+from gates import app
 
 if __name__ == '__main__':
 	app.run()
