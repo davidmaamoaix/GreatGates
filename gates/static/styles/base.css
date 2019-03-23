@@ -4,27 +4,52 @@
 }
 
 body {
-	background-color: #F0F0F0;
+	background-color: #FAFAFA;
+}
+
+input {
+	outline-width: 0;
 }
 
 .shiny {
+	background-color: #FFF;
+	color: #5595FF;
 	border-style: solid;
 	border-radius: 10px;
 	border-width: 2px;
+	border-color: #5595FF;
 	padding: 7px 10px;
+	transition: 0.3s;
+}
+
+.shiny:hover {
+	background-color: #5595FF;
+	color: #FFF;
 }
 
 .nav {
 	background-color: #FFF;
 	padding: 30px 20px;
+	box-shadow: 0 2px 2px #AAA;
 }
 
 .nav-center {
 	margin: 0 auto;
-	width: 1000px;
 	position: relative;
 	justify-content: space-between;
 	display: flex;
+}
+
+@media only screen and (min-width: 700px) {
+	.nav-center {
+		width: 600px;
+	}
+}
+
+@media only screen and (min-width: 1100px) {
+	.nav-center {
+		width: 1000px;
+	}
 }
 
 .nav-list {
