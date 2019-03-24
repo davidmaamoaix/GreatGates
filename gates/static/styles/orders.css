@@ -24,7 +24,6 @@ hr {
 	background-color: #FFF;
 	border-radius: 20px;
 	box-shadow: 1px 1px 6px #BBB;
-	transition: 0.3s;
 }
 
 .order-wrapper:hover {
