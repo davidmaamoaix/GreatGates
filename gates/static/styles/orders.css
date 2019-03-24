@@ -8,7 +8,7 @@ hr {
 }
 
 .order-title {
-	margin: 75px 0;
+	margin-top: 75px;
 	font-size: 25px;
 	cursor: pointer;
 	color: #333;
@@ -17,6 +17,23 @@ hr {
 
 .order-title:hover {
 	color: #888;
+}
+
+.order-wrapper {
+	width: 100%;
+	background-color: #FFF;
+	border-radius: 20px;
+	box-shadow: 1px 1px 6px #BBB;
+	transition: 0.3s;
+}
+
+.order-wrapper:hover {
+	box-shadow: 3px 3px 12px #CCC;
+}
+
+.nothing {
+	text-align: center;
+	padding: 20px 0;
 }
 
 .guide {

@@ -12,9 +12,19 @@
 		<p class="secondary guide-text">All orders are placed under your student ID.</p>
 	</div>
 	<div class="order-title"><span>Pending orders</span><span class="expand-symbol">+</span><hr></div>
-	<div class="order-wrapper"></div>
+	<div class="order-wrapper">
+		{% if not pending %}
+			<p class="secondary nothing">Nothing to show here</p>
+		{% else %}
+		{% endif %}
+	</div>
 	<div class="order-title"><span>Finished orders</span><span class="expand-symbol">+</span><hr></div>
-	<div class="order-wrapper"></div>
+	<div class="order-wrapper">
+		{% if not finished %}
+			<p class="secondary nothing">Nothing to show here</p>
+		{% else %}
+		{% endif %}
+	</div>
 {% endblock %}
 
 {% block scripts %}

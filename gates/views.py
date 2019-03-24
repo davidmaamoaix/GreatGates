@@ -5,6 +5,7 @@ from functools import wraps
 
 import re
 from gates import app
+import gates.data as data
 import gates.utils as utils
 
 def detectLogin(func):
@@ -18,7 +19,13 @@ def detectLogin(func):
 @app.route('/')
 @detectLogin
 def home():
-	return render_template('orders.html', title='My Orders')
+	orderData = data.getOrders(session['name'])
+	return render_template(
+		'orders.html',
+		title='My Orders',
+		pending=orderData[0],
+		finished=orderData[1]
+	)
 
 @app.route('/login', methods=["GET", "POST"])
 def login():

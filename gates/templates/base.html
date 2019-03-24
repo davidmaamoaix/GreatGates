@@ -15,7 +15,7 @@
 					<div></div>
 					<ul class="nav-list">
 						<li class="primary nav-obj underline">About</li>
-						<li class="primary nav-obj underline">Order</li>
+						<li class="primary nav-obj underline" onclick='window.location.href = "/"'>Order</li>
 						{% if session['logged_in'] %}
 							<li class="primary nav-obj underline" id="logout-toggle">{{ session['name'] }}</li>
 						{% else %}
