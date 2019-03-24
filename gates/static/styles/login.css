@@ -43,6 +43,11 @@
 	}
 }
 
+.error {
+	color: #F00;
+	text-align: center;
+}
+
 .continue-btn {
 	margin: 15px auto;
 	display: block;
@@ -53,6 +58,7 @@
 	border-radius: 10px;
 	background-color: #FFF;
 	transition: 0.3s;
+	cursor: pointer;
 }
 
 .continue-btn:hover {

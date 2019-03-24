@@ -16,13 +16,23 @@
 					<ul class="nav-list">
 						<li class="primary nav-obj underline">About</li>
 						<li class="primary nav-obj underline">Order</li>
-						<li class="primary nav-obj"><span class="shiny">Sign in</span></li>
+						{% if session['logged_in'] %}
+							<li class="primary nav-obj underline" id="logout-toggle">{{ session['name'] }}</li>
+						{% else %}
+							<li class="primary nav-obj" onclick='window.location.href = "/login"'><span class="shiny">Sign in</span></li>
+						{% endif %}
 					</ul>
+					<div id="logout-menu"><p id="logout-btn" onclick='window.location.href = "/logout"'><br>Log out</p></div>
 				</div>
 			</div>
 		</header>
-		{% block content %}
-		{% endblock %}
+		<div id="center-box">
+			{% block content %}
+			{% endblock %}
+		</div>
+		{% block scripts %}
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/base.js"></script>
+		{% endblock %}
 	</body>
 </html>
