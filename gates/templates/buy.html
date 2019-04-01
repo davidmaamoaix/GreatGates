@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{ super() }}
+	<link rel='stylesheet' href='/static/styles/buy.css'>
+{% endblock %}
+
+{% block content %}
+	<div id="shop-container">
+		{% for i in items %}
+			<div class="item-wrapper">
+				<img src="/static/images/{{ i }}.jpeg" class="thumbnail" height="150" width="150">
+				<div class="text-box">
+					<div class="description">{{ i }}</div>
+					<div class="amount noselect">
+						<div class="value-btn minus">-</div>
+						<input type="text" name="amount" class="amount-box" value="0">
+						<div class="value-btn add">+</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+{% block extra %}
+	<div id="info-bar">
+		<div id="info">
+			<span id="total-text">Total:</span>
+			<span id="total">¥0</b>
+		</div>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	{{ super() }}
+	<script type="text/javascript" src="/static/scripts/buy.js"></script>
+{% endblock %}

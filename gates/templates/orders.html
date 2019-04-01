@@ -7,18 +7,22 @@
 
 {% block content %}
 	<h1 class="welcome">Welcome, {{ session['name'].split(' ')[0] }}</h1>
+	<span class="shiny order-btn" onclick='window.location.href = "/buy"'>New order</span>
 	<div class="guide">
 		<p class="secondary guide-text">This page contains all informations about your deliveries.</p>
-		<p class="secondary guide-text">All orders are placed under your student ID.</p>
+		<p class="secondary guide-text">
+			All orders are placed under your student ID. 
+			<hidden style="color: #FAFAFA;">which means we can and will hunt you down if you do something naughty!</hidden>
+		</p>
 	</div>
-	<div class="order-title" panel-id="pending-panel"><span>Pending orders</span><span class="expand-symbol">-</span><hr></div>
+	<div class="order-title noselect" panel-id="pending-panel"><span>Pending orders</span><span class="expand-symbol">-</span><hr></div>
 	<div class="order-wrapper" id="pending-panel">
 		{% if not pending %}
 			<p class="secondary nothing">Nothing to show here</p>
 		{% else %}
 		{% endif %}
 	</div>
-	<div class="order-title" panel-id="finished-panel"><span>Finished orders</span><span class="expand-symbol">-</span><hr></div>
+	<div class="order-title noselect" panel-id="finished-panel"><span>Finished orders</span><span class="expand-symbol">-</span><hr></div>
 	<div class="order-wrapper" id="finished-panel">
 		{% if not finished %}
 			<p class="secondary nothing">Nothing to show here</p>

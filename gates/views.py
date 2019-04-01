@@ -5,6 +5,7 @@ from functools import wraps
 
 import re
 from gates import app
+import gates.constants as constants
 import gates.data as data
 import gates.utils as utils
 
@@ -56,6 +57,15 @@ def login():
 		flash('Server is busy')
 
 	return redirect(url_for('home'))
+
+@app.route('/buy')
+@detectLogin
+def buy():
+	return render_template(
+		'buy.html',
+		title='Buy',
+		items=constants.ITEMS
+	)
 
 @app.route('/logout')
 @detectLogin

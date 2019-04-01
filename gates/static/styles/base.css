@@ -41,6 +41,13 @@ input {
 	width: 1000px;
 	padding: 0 30px;
 	margin: 0 auto;
+	margin-bottom: 200px;
+}
+
+@media only screen and (max-width: 1200px) {
+	#center-box {
+		width: 80%;
+	}
 }
 
 .shiny {
@@ -60,12 +67,17 @@ input {
 }
 
 .nav {
+	top: 0;
+	width: 100%;
 	background-color: #FFF;
 	padding: 30px 20px;
 	box-shadow: 0 2px 2px #CCC;
+	position: fixed;
+	z-index: 1;
 }
 
 .nav-center {
+	width: 90%;
 	margin: 0 auto;
 	position: relative;
 	justify-content: space-between;
@@ -132,4 +144,13 @@ input {
 
 .secondary {
 	color: #777;
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
