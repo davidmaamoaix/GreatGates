@@ -37,8 +37,10 @@ function isNum(num) {
 
 function updateTotal() {
 	var total = 0;
-	$('.amount-box').each(function() {
-		total += parseInt($(this).val());
+	$('.text-box').each(function(index) {
+		var price = parseFloat($(this).children('.price').first().text().replace('¥', ''));
+		var amount = parseInt($('.amount-box').eq(index).val());
+		total += price * amount;
 	});
 	$('#total').text('¥' + total);
 }
