@@ -8,6 +8,7 @@ from gates import app
 import gates.constants as constants
 import gates.data as data
 import gates.utils as utils
+from gates.recorder import current as recorder
 
 def detectLogin(func):
 	@wraps(func)
