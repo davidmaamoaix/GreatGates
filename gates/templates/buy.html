@@ -6,6 +6,16 @@
 {% endblock %}
 
 {% block content %}
+	<div id="address-bar">
+		<div class="entry">
+			<div class="description label"><strong style="color: red;">*</strong>Location: </div>
+			<input type="text" name="location" class="text-insert">
+		</div>
+		<div class="entry">
+			<div class="description label"><strong style="color: red;">*</strong>Time: </div>
+			<input type="text" name="time" class="text-insert">
+		</div>
+	</div>
 	<div id="shop-container">
 		{% for i in items %}
 			<div class="item-wrapper">
@@ -30,6 +40,7 @@
 			<span id="total-text">Total:</span>
 			<span id="total">¥0</b>
 		</div>
+		<span id="submit-btn" class="inactive noselect">Submit</span>
 	</div>
 {% endblock %}
 

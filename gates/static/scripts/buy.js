@@ -51,6 +51,7 @@ $('.amount-box').inputFilter(function(value) {
 
 $('.amount-box').focusout(function() {
 	var value = $(this).val();
+	if (value.length == 0) $(this).val(0);
 	if (value > 20) $(this).val(20);
 	updateTotal();
 });
@@ -63,4 +64,21 @@ $('.minus').on('click', function() {
 $('.add').on('click', function() {
 	$(this).siblings('.amount-box').val(add($(this).siblings('.amount-box').val()));
 	updateTotal();
+});
+
+$('#submit-btn').attr('onclick', '').attr('class', 'noselect inactive');
+
+$('.text-insert').bind('keyup', function() {
+	var valid = true;
+	$('.text-insert').each(function(index) {
+		if ($(this).val().length == 0) {
+			valid = false;
+			return false;
+		}
+	});
+	if (valid) {
+		$('#submit-btn').attr('onclick', 'window.location.href = "/submit"').attr('class', 'noselect active');
+	} else {
+		$('#submit-btn').attr('onclick', '').attr('class', 'noselect inactive');
+	}
 });

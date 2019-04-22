@@ -67,6 +67,12 @@ def buy():
 		items=constants.ITEMS
 	)
 
+@app.route('/submit', methods=["GET", "POST"])
+@detectLogin
+def submit():
+	if request.method == 'GET':
+		return redirect(url_for('home'))
+
 @app.route('/logout')
 @detectLogin
 def logout():

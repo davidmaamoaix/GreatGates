@@ -17,6 +17,57 @@
 	overflow: hidden;
 }
 
+.text-insert {
+	height: 20px;
+	width: 100px;
+	font-size: 15px;
+}
+
+#submit-btn {
+	right: 0;
+	top: 0;
+	position: absolute;
+	padding: 21px 20px;
+	color: #FFF;
+	font-size: 20px;
+	transition: 0.3s;
+}
+
+.active {
+	background-color: #DFA86A;
+	cursor: pointer;
+}
+
+.inactive {
+	background-color: #999;
+	cursor: default;
+}
+
+.active:hover {
+	background-color: #EFB87A;
+	color: #DDD;
+}
+
+.label {
+	display: inline-block;
+}
+
+#address-bar {
+	width: 100%;
+	border-radius: 25px;
+	padding-bottom: 15px;
+	background-color: #FFF;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 75px;
+	box-shadow: 1px 1px 4px #DDD;
+}
+
+.entry {
+	display: inline-block;
+	margin: auto 50px;
+}
+
 .text-box {
 	height: 100px;
 	width: 100%;
@@ -66,6 +117,7 @@
 	background-color: #FFF;
 	box-shadow: 0px 0px 8px #AAA;
 	z-index: 2;
+	overflow: hidden;
 }
 
 #info {

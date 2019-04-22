@@ -21,6 +21,7 @@ hr {
 
 .order-btn {
 	background-color: #FAFAFA;
+	cursor: pointer;
 	color: #5595FF;
 	float: right;
 	display: inline-block;
