@@ -77,7 +77,7 @@ $('.text-insert').bind('keyup', function() {
 		}
 	});
 	if (valid) {
-		$('#submit-btn').attr('onclick', 'window.location.href = "/submit"').attr('class', 'noselect active');
+		$('#submit-btn').attr('onclick', 'buyform.submit()').attr('class', 'noselect active');
 	} else {
 		$('#submit-btn').attr('onclick', '').attr('class', 'noselect inactive');
 	}

@@ -71,8 +71,10 @@ def buy():
 @app.route('/submit', methods=["GET", "POST"])
 @detectLogin
 def submit():
-	if request.method == 'GET':
-		return redirect(url_for('home'))
+	#if request.method == 'GET':
+		#return redirect(url_for('home'))
+
+	return render_template('success.html', title='Order Completed')
 
 @app.route('/logout')
 @detectLogin

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{ super() }}
+	<link rel='stylesheet' href='/static/styles/success.css'>
+{% endblock %}
+
+{% block content %}
+	<div class="notice-box">
+		<h1 class="notice-title primary">Order Submitted!</h1>
+		<p class="secondary">You will be redirected to your list of orders in <num id="num">5</num> seconds.</p>
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	{{ super() }}
+	<script type="text/javascript">
+		var count = 4;
+		var countInterval;
+
+		function tick() {
+			$('#num').html(count);
+
+			if (count == 0) {
+				clearInterval(countInterval);
+				window.location.href = '/';
+			}
+
+			count--;
+		}
+
+		countInterval = setInterval('tick()', 1000);
+	</script>
+{% endblock %}

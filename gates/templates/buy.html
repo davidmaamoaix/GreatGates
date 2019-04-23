@@ -6,32 +6,34 @@
 {% endblock %}
 
 {% block content %}
-	<div id="address-bar">
-		<div class="entry">
-			<div class="description label"><strong style="color: red;">*</strong>Location: </div>
-			<input type="text" name="location" class="text-insert">
+	<form id="buyform" action="/submit" method="POST" autocomplete="off">
+		<div id="address-bar">
+			<div class="entry">
+				<div class="description label"><strong style="color: red;">*</strong>Location: </div>
+				<input type="text" name="location" class="text-insert">
+			</div>
+			<div class="entry">
+				<div class="description label"><strong style="color: red;">*</strong>Time: </div>
+				<input type="text" name="time" class="text-insert">
+			</div>
 		</div>
-		<div class="entry">
-			<div class="description label"><strong style="color: red;">*</strong>Time: </div>
-			<input type="text" name="time" class="text-insert">
-		</div>
-	</div>
-	<div id="shop-container">
-		{% for i in items %}
-			<div class="item-wrapper">
-				<img src="/static/images/{{ i }}.jpeg" class="thumbnail" height="150" width="150">
-				<div class="text-box">
-					<div class="description">{{ i }}</div>
-					<div class="price">¥{{ items[i] }}</div>
-					<div class="amount noselect">
-						<div class="value-btn minus">-</div>
-						<input type="text" name="{{ i }}" class="amount-box" value="0">
-						<div class="value-btn add">+</div>
+		<div id="shop-container">
+			{% for i in items %}
+				<div class="item-wrapper">
+					<img src="/static/images/{{ i }}.jpeg" class="thumbnail" height="150" width="150">
+					<div class="text-box">
+						<div class="description">{{ i }}</div>
+						<div class="price">¥{{ items[i] }}</div>
+						<div class="amount noselect">
+							<div class="value-btn minus">-</div>
+							<input type="text" name="{{ i }}" class="amount-box" value="0">
+							<div class="value-btn add">+</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		{% endfor %}
-	</div>
+			{% endfor %}
+		</div>
+	</form>
 {% endblock %}
 
 {% block extra %}
