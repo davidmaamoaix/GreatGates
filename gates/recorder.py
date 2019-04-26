@@ -10,13 +10,19 @@ class OrderEntry:
 		self.time = time
 		self.items = items
 
+	def __str__(self):
+		return f'Entry: %d; Location: %s; Time: %s; Data: %s'%\
+				(self.entryId, self.location, self.time, self.items)
+
 	def serialize(self) -> dict:
 		data = {
-			'entryId': self.id,
+			'entryId': self.entryId,
 			'location': self.location,
 			'time': self.time,
 			'items': self.items
 		}
+
+		return data
 
 	@classmethod
 	def deserialize(cls, data: dict):
@@ -35,14 +41,31 @@ class Recorder:
 
 	def add(self, userId: str, entry: OrderEntry):
 		userEntries = self.data.setdefault(userId, [])
-		userEntries.append(entry)
+		userEntries.append(entry.serialize())
+		self.dumps()
+
+	def find(self, userId: str) -> list:
+		return self.data.get(userId, [])
 
 	def remove(self, userId: str, entryId: int):
 		userEntries = self.data.setdefault(userId, [])
 		self.data[userId] = [i for i in userEntries if i['entryId'] != entryId]
+		self.dumps()
 
 	def dumps(self):
 		with open(PATH, 'w') as f:
 			json.dump(self.data, f)
 
-current = Recorder()
+	def genEntryId(self) -> int:
+		currId = self.data.setdefault('entryIdGenerator', 0)
+		self.data['entryIdGenerator'] += 1
+		return currId
+
+def add(*args, **kwargs):
+	Recorder().add(*args, **kwargs)
+
+def find(*args, **kwargs):
+	return Recorder().find(*args, **kwargs)
+
+def genEntryId():
+	return Recorder().genEntryId()

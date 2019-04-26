@@ -8,7 +8,7 @@ from gates import app
 import gates.constants as constants
 import gates.data as data
 import gates.utils as utils
-from gates.recorder import current as recorder
+import gates.recorder as recorder
 
 def detectLogin(func):
 	@wraps(func)
@@ -18,15 +18,19 @@ def detectLogin(func):
 		return redirect(url_for('login'))
 	return wrapper
 
+@app.errorhandler(500)
+def internal(error):
+	return str(error)
+
 @app.route('/')
 @detectLogin
 def home():
-	orderData = data.getOrders(session['name'])
+	orderData = recorder.find(session['username'])
 	return render_template(
 		'orders.html',
 		title='My Orders',
-		pending=orderData[0],
-		finished=orderData[1]
+		pending=orderData,
+		finished=[]
 	)
 
 @app.route('/login', methods=["GET", "POST"])
@@ -73,6 +77,24 @@ def buy():
 def submit():
 	#if request.method == 'GET':
 		#return redirect(url_for('home'))
+	form = request.form.to_dict()
+	location = form.pop('location')
+	time = form.pop('time')
+	form = {
+		k: int(v)
+		for k, v in form.items()
+		if v.isdigit() and int(v) > 0 and k in constants.ITEMS.keys()
+	}
+
+	if (form):
+		entry = recorder.OrderEntry(
+			recorder.genEntryId(),
+			location,
+			time,
+			form
+		)
+
+		recorder.add(session['username'], entry)
 
 	return render_template('success.html', title='Order Completed')
 

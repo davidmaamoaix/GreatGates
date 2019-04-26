@@ -7,6 +7,21 @@ hr {
 	font-size: 35px;
 }
 
+.divide {
+	width: 95%;
+	margin: 10px auto;
+}
+
+.horizontal-list {
+	display: inline-block;
+	line-height: 50px;
+	margin: auto 10px;
+}
+
+.entry-list {
+	list-style: none;
+}
+
 .order-title {
 	margin-top: 75px;
 	font-size: 25px;
@@ -38,6 +53,7 @@ hr {
 	background-color: #FFF;
 	border-radius: 20px;
 	box-shadow: 1px 1px 6px #BBB;
+	padding: 10px 0;
 }
 
 .order-wrapper:hover {
