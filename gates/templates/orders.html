@@ -25,17 +25,20 @@
 					<ul class="entry-table">
 						<li class="horizontal-list"><b>Location:</b> {{ pending[i]['location'] }}</li>
 						<li class="horizontal-list"><b>Time:</b> {{ pending[i]['time'] }}</li>
-						<li class="horizontal-list" style="float: right;">
-							<span style="position: absolute;"><b>Items:</b></span>
-							<ul class="entry-table">
+						<li style="list-style: none; margin: auto 10px;">
+							<span><b>Items:</b></span>
+							<ul>
 								{% for k, v in pending[i]['items'].items() %}
 									<li class="item-list horizontal-list">{{ k }}: {{v}}</li>
 								{% endfor %}
 							</ul>
 						</li>
+						<div class="delete" entry="{{ pending[i]['entryId'] }}"><span>X</span></div>
 					</ul>
+					{% if i != pending|length - 1 %}
+						<hr class="divide">
+					{% endif %}
 				</div>
-				<hr class="divide">
 			{% endfor %}
 		{% endif %}
 	</div>

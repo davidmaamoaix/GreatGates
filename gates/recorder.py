@@ -59,10 +59,14 @@ class Recorder:
 	def genEntryId(self) -> int:
 		currId = self.data.setdefault('entryIdGenerator', 0)
 		self.data['entryIdGenerator'] += 1
+		self.dumps()
 		return currId
 
 def add(*args, **kwargs):
 	Recorder().add(*args, **kwargs)
+
+def remove(*args, **kwargs):
+	Recorder().remove(*args, **kwargs)
 
 def find(*args, **kwargs):
 	return Recorder().find(*args, **kwargs)

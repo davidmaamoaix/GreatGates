@@ -22,6 +22,10 @@ img {
 	-ms-user-select: none;
 }
 
+ul {
+	padding-inline-start: 0;
+}
+
 #logout-menu {
 	position: absolute;
 	height: 55px;

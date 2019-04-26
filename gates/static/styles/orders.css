@@ -7,9 +7,30 @@ hr {
 	font-size: 35px;
 }
 
+.entry-table {
+	padding: 0 40px;
+}
+
 .divide {
 	width: 95%;
 	margin: 10px auto;
+}
+
+.delete {
+	font-size: 20px;
+	width: 20%;
+	border-radius: 10px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #FFF;
+	transition: 0.3s;
+	color: #777;
+	cursor: pointer;
+}
+
+.delete:hover {
+	background-color: #F77;
+	color: #FFF;
 }
 
 .horizontal-list {

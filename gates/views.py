@@ -98,6 +98,17 @@ def submit():
 
 	return render_template('success.html', title='Order Completed')
 
+@app.route('/remove', methods=['POST'])
+@detectLogin
+def remove():
+	userId = session['username']
+	entryId = request.form['entryId']
+
+	if (entryId.isdigit()):
+		recorder.remove(userId, int(entryId))
+
+	return render_template('success.html', title='Order Completed')
+
 @app.route('/logout')
 @detectLogin
 def logout():
