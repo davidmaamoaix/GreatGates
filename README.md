@@ -1,2 +1,3 @@
-# Great Gates Front End
-A shop thingy.
+# Great Gates
+An online campus shop.
+Visit at [here](http://greatgatesykps.com).
